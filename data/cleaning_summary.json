@@ -1,0 +1,30 @@
+{
+  "source_collected_at_utc": "2026-11-08T23:01:52.862113+00:00",
+  "source_sha256": "4f1598c9a6ba396a52e256762a0d9148abd22cdf856f26fc8825fa1d1dc49631",
+  "raw_records": 5597,
+  "raw_columns": 53,
+  "wr_regular_season_records_before_cleaning": 2132,
+  "excluded_other_positions_or_seasons": 3465,
+  "invalid_or_missing_rows_removed": 0,
+  "exact_duplicate_rows_removed": 0,
+  "conflicting_player_week_duplicates": 0,
+  "clean_weekly_records": 2132,
+  "unique_receivers": 227,
+  "week_min": 1,
+  "week_max": 18,
+  "predictor_rows_weeks_1_to_17": 2012,
+  "consecutive_week_pairs": 1560,
+  "eligible_rows_without_following_week": 452,
+  "weekly_sample_records": 50,
+  "pairs_sample_records": 50,
+  "retained_fields": [
+    "player_id",
+    "season",
+    "season_type",
+    "week",
+    "position",
+    "targets",
+    "fantasy_points_ppr"
+  ],
+  "sample_random_seed": 42
+}

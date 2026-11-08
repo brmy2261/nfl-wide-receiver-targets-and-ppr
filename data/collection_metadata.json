@@ -1,0 +1,15 @@
+{
+  "source_url": "https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats_2024.csv",
+  "collected_at_utc": "2026-11-08T23:01:52.862113+00:00",
+  "http_status": 200,
+  "user_agent": "BrendanMyers-ClassResearch/1.0 (+https://github.com/brmy2261/nfl-wide-receiver-targets-and-ppr)",
+  "pause_seconds": 2,
+  "raw_path": "data/raw/player_stats_2024_2026-11-08.csv",
+  "raw_records": 5597,
+  "raw_bytes": 1674023,
+  "raw_columns": 53,
+  "sha256": "4f1598c9a6ba396a52e256762a0d9148abd22cdf856f26fc8825fa1d1dc49631",
+  "robots_url": "https://github.com/robots.txt",
+  "robots_http_status": 200,
+  "license_url": "https://github.com/nflverse/nflverse-data/blob/main/LICENSE.md"
+}
