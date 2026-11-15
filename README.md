@@ -14,11 +14,23 @@ Full raw data are saved locally but excluded from Git because they include unnec
 
 ## Methods
 
-I will match receivers by player ID and consecutive week, then compare the two Pearson correlations. The [proposal](proposal.md) describes the sample, target groups, and missing-week rules.
+I paired each receiver’s 2024 regular-season record with his record exactly one NFL week later using his player ID. Of 2,012 eligible records in weeks 1–17, 452 had no next-week observation. I left those outcomes missing. For the remaining 1,560 pairs, I calculated Pearson correlations between next-week PPR points and each of two current-week measures, targets and PPR points. Each pair counts once in both comparisons. I also grouped the same pairs by current targets and calculated their mean next-week score.
 
-## Findings
+## Preliminary findings
 
-Pending analysis. The [report](report.md) will give the matched sample size, both correlations, their difference, and the target-group averages.
+Targets had the stronger association with next-week PPR scoring in the 2024 regular season. Across **1,560 consecutive-week pairs**, the Pearson correlation was **0.410** for current targets and **0.357** for current PPR points, a difference of **+0.053** using unrounded values. Receivers who drew eight or more targets averaged **13.94 PPR points** the following week, compared with **5.91** after three or fewer targets.
+
+| Current-week targets | Consecutive-week pairs | Mean next-week PPR points |
+| --- | ---: | ---: |
+| 0–3 | 587 | 5.91 |
+| 4–7 | 600 | 10.13 |
+| 8 or more | 373 | 13.94 |
+
+![Two scatterplots of next-week PPR against current targets and PPR points, with fitted lines](figures/next-week-ppr.png)
+
+*Figure 1. Across 1,560 consecutive-week pairs, targets had a stronger correlation with next-week PPR points than current PPR points did, although scores varied widely around both fitted lines.*
+
+A receiver can appear several times. The correlations combine differences between receivers with week-to-week changes in workload. They describe receivers observed in consecutive weeks during one season. Individual outcomes varied substantially even at the same target count.
 
 ## How to reproduce
 
@@ -32,6 +44,6 @@ python scripts/clean.py
 
 The collector identifies this project in its User-Agent, pauses at least two seconds between requests (including redirects), checks HTTP responses, saves the raw bytes under `data/raw/`, and records their SHA-256 checksum. It reuses an existing verified download. On a fresh clone, it downloads the source and updates the metadata; upstream revisions may change the checksum or counts from the recorded run.
 
-Cleaning creates `data/processed/wr_weekly_2024.csv` and `data/processed/wr_consecutive_weeks_2024.csv`, plus the two committed samples and a JSON summary. Use the full generated paired table for the eventual analysis, not the 50-row samples. No API key is required. Git ignores both full-data folders.
+Cleaning creates `data/processed/wr_weekly_2024.csv` and `data/processed/wr_consecutive_weeks_2024.csv`, plus the two committed samples and a JSON summary. Use the full generated paired table to reproduce the analysis, not the 50-row samples. No API key is required. Git ignores both full-data folders.
 
-For the interactive version, install JupyterLab (`python -m pip install jupyterlab`), open [analysis.ipynb](analysis.ipynb) from this folder, and run all cells. The saved notebook already contains the Week 12 collection and cleaning outputs. Statistical findings and the final report remain for a later project stage.
+For the interactive version, install JupyterLab (`python -m pip install jupyterlab`), open [analysis.ipynb](analysis.ipynb) from this folder, and run all cells. Running all cells regenerates both correlations, the target-group table, and the saved figure. The committed notebook includes their outputs.
